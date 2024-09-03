@@ -1,0 +1,131 @@
+
+.app-title{
+    margin: 0;
+    cursor: default;
+    -webkit-user-select: none;
+    -ms-user-select: none; 
+    user-select: none; 
+    pointer-events: none;
+    font-size: 48px;
+    font-family: "Orbitron", sans-serif;
+    font-weight: bold;
+    text-shadow: 0px 4px 10px rgba(11, 20, 26, 0.411);
+}
+
+.login-wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.login-container{
+    width: 100%;
+    width: 560px;
+    display: flex;
+    gap: 52px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.form{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    animation-name: fade-in;
+    animation-duration: 500ms;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.login-title{
+    font-size: 24px;
+    font-weight: 600;
+    padding-bottom: 12px;
+}
+
+.form-wrapper{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 20px;
+}
+
+.submit{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    background-color: rgb(9, 0, 49);
+    border-radius: 4px;
+    height: 32px;
+    width: 120px;
+    font-size: 20px;
+    transition: 300ms;
+    cursor: pointer;
+}
+
+.submit:hover{
+    opacity: 0.7;
+}
+
+.submit-text{
+    animation-name: fade-in;
+    animation-duration: 500ms;
+}
+
+.message{
+    padding-bottom: 8px;
+}
+
+.message u{
+    cursor: pointer;
+    transition: 300ms;
+}
+
+.message u:hover{
+    opacity: 0.7;
+}
+
+.icon-hover{
+    cursor: pointer;
+    transition: 300ms;
+}
+
+.icon-hover:hover{
+    opacity: 0.7;
+}
+
+@media only screen and (max-width: 667px) {
+    .login-container{
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column-reverse;
+        gap: 52px;
+        align-items: center;
+        justify-content: space-between;
+    }
+    
+    .message{
+        font-size: 16px;
+        width: 100%;
+        height: 40px;
+        text-align: center;
+    }
+
+    .login-wrapper{
+        align-items: center;
+    }
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0%;
+    }
+    40% {
+        opacity: 0%;
+    }
+    100% {
+        opacity: 100%;
+    }
+}

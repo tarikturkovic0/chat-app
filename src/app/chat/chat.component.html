@@ -1,0 +1,60 @@
+<div class="chat-wrapper">
+    <div class="content-top">
+      <span class="app-title">RealTalk</span>
+      <div class="user-controls">
+        <span class="logged-in-as">Logged in as: {{username}}</span>
+        <button class="submit" (click)="logout()">
+          <span class="submit-text">Log out <mat-icon matSuffix>logout</mat-icon></span>
+        </button>
+      </div>
+    </div>
+    <div class="content-main">
+      <div class="chats-wrapper">
+        <div *ngFor="let user of activeUsers" class="chat-container" (click)="openChat(user, 'user')">
+          <mat-icon matSuffix>person</mat-icon>
+          <p class="active">{{user}}</p>
+        </div>
+        <div *ngFor="let chatroom of chatrooms" class="chat-container" (click)="openChat(chatroom, 'room')">
+          <mat-icon matSuffix>groups</mat-icon>
+          <p>{{chatroom}}</p>
+        </div>
+      </div>
+      <div class="chatroom-wrapper">
+        <div class="no-chatroom" *ngIf="!currentIdentifier">
+          <p class="chatroom-message">Create or join a chatroom with a code:</p>
+          <mat-form-field appearance="outline">
+            <mat-label>Room code</mat-label>
+            <input [(ngModel)]="createRoomCode" matInput type="text">
+          </mat-form-field>
+          <button class="submit-large" (click)="createRoom()">
+            <span class="submit-text">Start a chat <mat-icon matSuffix>add_comment</mat-icon></span>
+          </button>
+        </div>
+        <div class="chatroom-open" *ngIf="currentIdentifier">
+          <div class="chatroom-info">
+            <mat-icon class="close-icon" matSuffix (click)="closeChat()">close</mat-icon>
+            <p class="chatroom-header">{{currentChat}}</p>
+          </div>
+          <div class="messages-wrapper" #chatContainer>
+            <div *ngFor="let message of messages" [ngClass]="{'received-wrapper': message.from !== username, 'sent-wrapper': message.from === username}">
+              <div [ngClass]="{'message-received': message.from !== username, 'message-sent': message.from === username}" class="message">
+                <p class="message-content">{{message.content}}</p>
+                <p class="date-time">{{formatDate(message.timestamp)}}</p>
+                <p *ngIf="message.from !== username" class="date-time"><i>from <b>{{message.from}}</b></i></p>
+              </div>
+            </div>
+          </div>
+          <div class="message-input">
+            <mat-form-field (keydown.enter)="sendMessage()" class="message-field" subscriptSizing="dynamic" appearance="outline">
+              <mat-label>Message</mat-label>
+              <input [(ngModel)]="currentMessage" matInput type="text">
+            </mat-form-field>
+            <button [ngClass]="canSendMessage ? 'send-button' : 'send-disabled'" (click)="sendMessage()">
+              <mat-icon matSuffix>send</mat-icon>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

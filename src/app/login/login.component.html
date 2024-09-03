@@ -1,0 +1,53 @@
+<div class="login-wrapper">
+    <div class="login-container">
+        <div class="form" *ngIf="isLogin">
+            <div class="form-wrapper">
+                <span class="login-title">Login</span>
+                <mat-form-field appearance="outline">
+                    <mat-label>Username</mat-label>
+                    <input [(ngModel)]="username" matInput>
+                    <mat-icon matSuffix>person</mat-icon>
+                    <mat-hint *ngIf="false">TEST</mat-hint>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Password</mat-label>
+                    <input [(ngModel)]="password" *ngIf="!isPasswordVisible" matInput type="password">
+                    <input [(ngModel)]="password" *ngIf="isPasswordVisible" matInput type="text">
+                    <mat-icon class="icon-hover" *ngIf="!isPasswordVisible" (click)="togglePasswordVisibility()" matSuffix>visibility</mat-icon>
+                    <mat-icon class="icon-hover" *ngIf="isPasswordVisible" (click)="togglePasswordVisibility()" matSuffix>visibility_off</mat-icon>
+                    <mat-hint *ngIf="this.loginErrorMessage != ''">{{this.loginErrorMessage}}</mat-hint>
+                </mat-form-field>
+            </div>
+            <p class="message">
+                Don't have an account? You can register <u (click)="switchMode()"><b>here</b></u>.
+            </p>
+        </div>
+        <div class="form" *ngIf="!isLogin">
+            <div class="form-wrapper">
+                <span class="login-title">Register</span>
+                <mat-form-field appearance="outline">
+                    <mat-label>Username</mat-label>
+                    <input [(ngModel)]="username" matInput>
+                    <mat-icon matSuffix>person</mat-icon>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Password</mat-label>
+                    <input [(ngModel)]="password"  *ngIf="!isPasswordVisible" matInput type="password">
+                    <input [(ngModel)]="password"  *ngIf="isPasswordVisible" matInput type="text">
+                    <mat-icon class="icon-hover" *ngIf="!isPasswordVisible" (click)="togglePasswordVisibility()" matSuffix>visibility</mat-icon>
+                    <mat-icon class="icon-hover" *ngIf="isPasswordVisible" (click)="togglePasswordVisibility()" matSuffix>visibility_off</mat-icon>
+                    <mat-hint *ngIf="registerErrorMessage != ''">{{this.registerErrorMessage}}</mat-hint>
+                </mat-form-field>
+            </div>
+            <p class="message">
+                Already have an account? You can login <u (click)="switchMode()"><b>here</b></u>.
+            </p>
+        </div>
+        <span class="app-title">RealTalk</span>
+    </div>
+    <button class="submit" (click)="onSubmit()">
+        <span class="submit-text" *ngIf="isLogin">Login</span>
+        <span class="submit-text" *ngIf="!isLogin">Register</span>
+    </button>
+</div>
+
