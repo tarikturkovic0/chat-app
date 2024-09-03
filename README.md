@@ -1,5 +1,9 @@
 ## RealTalk chat application
 
+### You can start the app locally by running npm start in your terminal for both frontend and backend
+
+### URL to backend github repo: https://github.com/tarikturkovic0/chat-app-backend
+
 ### Registration and Login
 
 1. **Registration**:
