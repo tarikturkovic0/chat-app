@@ -3,12 +3,13 @@ import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { SocketService } from './socket.service';
 import { Message } from '../models/message';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ChatService {
-  private apiUrl = 'http://localhost:3000/api';
+  private apiUrl: string = environment.apiUrl + "/api";
   private messagesSubject = new Subject<Message>();
 
   constructor(private http: HttpClient, private socketService: SocketService) {
@@ -38,7 +39,7 @@ export class ChatService {
   }
 
   getChatrooms(username: string): Observable<string[]> {
-    return this.http.get<string[]>(`http://localhost:3000/api/chatrooms/${username}`);
+    return this.http.get<string[]>(`${this.apiUrl}/chatrooms/${username}`);
   }
 
   getChatHistory(identifier: string, type: string): Observable<Message[]> {
