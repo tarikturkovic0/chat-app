@@ -1,5 +1,5 @@
 export const environment = {
     production: true,
-    apiUrl: 'chat-app-backend-production-17d0.up.railway.app'
+    apiUrl: 'https://real-talk-backend-n8v4.onrender.com' 
   };
   
