@@ -37,10 +37,24 @@
           },
           "configurations": {
             "production": {
+              "outputPath": "dist/chat-app",
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "vendorChunk": false,
+              "buildOptimizer": true,
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "5000kb",
+                  "maximumWarning": "5mb",
                   "maximumError": "10mb"
                 },
                 {
@@ -48,8 +62,7 @@
                   "maximumWarning": "10kb",
                   "maximumError": "20kb"
                 }
-              ],
-              "outputHashing": "all"
+              ]
             },
             "development": {
               "buildOptimizer": false,
@@ -102,5 +115,6 @@
         }
       }
     }
-  }
+  },
+  "defaultProject": "chat-app"
 }
