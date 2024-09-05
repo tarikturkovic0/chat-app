@@ -1,5 +1,9 @@
 ## RealTalk chat application
 
+## Live URL: https://chat-app-frontend-allp.onrender.com/
+### Due to the render.com restrictions, the app isn't recognized as a SPA, so the routes will not work if you try to access them directly (eg. if you try going straight to the /login url, it will show the Not Found page). That can be avoided by using the root url
+### Also, since I used the free version of render.com, the app's API calls sometimes might last a bit longer (up to 50 seconds, as the render.com documentation says). Please be patient while using it.
+
 ### You can start the app locally by running npm install, to install the required dependencies, and then npm start in your terminal for both frontend and backend
 
 ### URL to backend github repo: https://github.com/tarikturkovic0/chat-app-backend
